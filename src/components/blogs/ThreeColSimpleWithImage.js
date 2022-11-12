@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-3.svg";
-import FledgerScheme from "../../images/demo/FledgerScheme.jpg"
+import EquityRichScheme from "../../images/demo/FledgerScheme.jpg"
 import AssetsExchange from "../../images/demo/AssetsExchange.jpg"
+import { Link } from "react-scroll";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -22,7 +23,7 @@ const Image = styled.div(props => [
 ]);
 const Category = tw.div`mt-4 text-secondary-100 font-bold text-sm`;
 const Title = tw.h4`mt-2 leading-relaxed font-bold text-lg`;
-const Link = tw.a`inline-block mt-2 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
+const Links = tw.a`inline-block mt-2 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
 
 const DecoratorBlob1 = tw(
   SvgDecoratorBlob1
@@ -34,14 +35,14 @@ const DecoratorBlob2 = tw(
 export default () => {
   const blogPosts = [
     {
-      imageSrc: FledgerScheme,
-      category: "Fledger",
+      imageSrc: EquityRichScheme,
+      category: "Equity Rich",
       title: "The Assets stays with you, we trade, you earn.",
       url: "https://timerse.com"
     },
     {
       imageSrc: AssetsExchange,
-      category: "Liquidfy",
+      category: "Recurring Return",
       title: "Your Assets remain safe with us, monthly fixed returns.",
       url: "https://reddit.com"
     // },
@@ -67,7 +68,18 @@ export default () => {
                 <Image imageSrc={post.imageSrc} />
                 <Category>{post.category}</Category>
                 <Title>{post.title}</Title>
-                <Link href={post.url}>Read Post</Link>
+                <Links href="">
+                  <Link
+                    activeClass="active"
+                    to="contactus"
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                  >
+                    Learn More
+                  </Link>
+                </Links>
               </Card>
             </Column>
           ))}

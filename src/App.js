@@ -1,6 +1,6 @@
 import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { css } from "styled-components/macro"; //eslint-disable-line
 
 /*

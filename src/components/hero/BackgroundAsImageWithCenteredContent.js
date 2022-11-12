@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import CustomParticles from "components/custom_designs/CustomParticles";
 
-import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
+import Header, { NavLink, NavLinks, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
+import { Link } from "react-scroll";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none w-full`}
@@ -16,7 +17,6 @@ const StyledHeader = styled(Header)`
   }
 `;
 
-const PrimaryLink = tw(PrimaryLinkBase)`rounded-full`
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
   background-image: url("https://images.unsplash.com/photo-1536300007881-7e482242baa5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80");
@@ -46,17 +46,53 @@ const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-bas
 export default () => {
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="#">
-        About
+      <NavLink href="">
+        <Link
+          activeClass="active"
+          to="products"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+        >
+          Products
+        </Link>
       </NavLink>
-      <NavLink href="#">
-        Strategies
+      <NavLink href="">
+        <Link
+          activeClass="active"
+          to="testimonial"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+        >
+          Testimonials
+        </Link>
       </NavLink>
-      <NavLink href="#">
-        Management
+      <NavLink href="">
+        <Link
+          activeClass="active"
+          to="contactus"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+        >
+          Contact Us
+        </Link>
       </NavLink>
-      <NavLink href="#">
-        Contact
+      <NavLink href="">
+        <Link
+          activeClass="active"
+          to="faqs"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+        >
+          FAQs
+        </Link>
       </NavLink>
     </NavLinks>
   ];
@@ -67,18 +103,29 @@ export default () => {
       <OpacityOverlay />
       <HeroContainer>
         <StyledHeader links={navLinks} />
-          <Content>
-            <Heading1>
-              ANTHILL
-            </Heading1>
-                <br />
-                <br />
-            <Heading2>
-                LET YOUR MONEY WORK FOR YOU.
-            </Heading2>
-            <PrimaryAction>Eplore the Plans</PrimaryAction>
-          </Content>
-        </HeroContainer>
+        <Content>
+          <Heading1>
+            ANTHILL
+          </Heading1>
+          <br />
+          <br />
+          <Heading2>
+            LET YOUR MONEY WORK FOR YOU.
+          </Heading2>
+          <PrimaryAction>
+            <Link
+              activeClass="active"
+              to="products"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
+              Eplore the Plans
+            </Link>
+          </PrimaryAction>
+        </Content>
+      </HeroContainer>
     </Container>
   );
 };

@@ -10,7 +10,7 @@ const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
 const FormContainer = styled.div`
-  ${tw`p-10 sm:p-12 md:p-16 bg-primary-500 text-gray-100 rounded-lg relative`}
+  ${tw`p-10 sm:p-12 md:p-16 bg-primary-900 text-gray-100 rounded-lg relative`}
   form {
     ${tw`mt-4`}
   }
@@ -44,7 +44,7 @@ export default () => {
   let handleContactUs = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("http://127.0.0.1:5000//api/v1/sendmail", {
+      let res = await fetch("https://anthill-python-backend.herokuapp.com//api/v1/sendmail", {
         method: "POST",
         body: JSON.stringify({
           name: name,
@@ -57,7 +57,6 @@ export default () => {
         },
       });
       let _ = await res.json();
-      console.log(res)
       // eslint-disable-next-line eqeqeq
       if (res.status == 200) {
        setName("")
@@ -80,17 +79,17 @@ export default () => {
                 <Column>
                   <InputContainer>
                     <Label htmlFor="name-input">Your Name<span style= {{color : "#b70000"}} >*</span></Label>
-                    <Input id="name-input" type="text" name="name" placeholder="E.g. John Doe" value={name} onChange={(e) => setName(e.target.value)} />
+                    <Input id="name-input" type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                   </InputContainer>
                   <InputContainer>
-                    <Label htmlFor="email-input">Your Email Address</Label>
-                    <Input id="email-input" type="email" name="email" placeholder="E.g. john@mail.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Label htmlFor="email-input">Your Contact Info</Label>
+                    <Input id="email-input" type="text" name="email" placeholder="Email or Contact Number" value={email} onChange={(e) => setEmail(e.target.value)} />
                   </InputContainer>
                 </Column>
                 <Column>
                   <InputContainer tw="flex-1">
                     <Label htmlFor="name-input">Your Message<span style= {{color : "#b70000"}} >*</span></Label>
-                    <TextArea id="message-input" name="message" placeholder="E.g. Details about your event" value={message} onChange={(e) => setMessage(e.target.value)} />
+                    <TextArea id="message-input" name="message" placeholder="Type in your query here, we will respond you at the soonest!" value={message} onChange={(e) => setMessage(e.target.value)} />
                   </InputContainer>
                 </Column>
               </TwoColumn>

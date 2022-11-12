@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Slider from "react-slick";
 import tw from "twin.macro";
 import styled, { css } from "styled-components/macro"; //eslint-disable-line
@@ -11,7 +11,7 @@ import { ReactComponent as ArrowRightIcon } from "images/arrow-right-3-icon.svg"
 
 import "slick-carousel/slick/slick.css";
 
-const PrimaryBackgroundContainer = tw(Container)`-mx-8 px-8 bg-primary-900 text-gray-100`;
+const PrimaryBackgroundContainer = tw(Container)`-mx-8 px-8 bg-primary-900 text-gray-100 rounded`;
 
 const HeadingContainer = tw.div``;
 const Subheading = tw(SubheadingBase)`text-center text-gray-100 mb-4`;
@@ -49,35 +49,34 @@ const ControlButton = styled.button`
 
 export default ({
   subheading = "",
-  heading = "Testimonials",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  testimonials = [
-    {
-      customerName: "David Hanson",
-      customerProfile: "CEO, Koalify",
-      imageSrc:
-        "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.85&w=256&h=256&q=80",
-      quote:
-        "We have been using servana for about 2 years. And in that time we have had no problem at all. The user interface is really simple to use. Our services scale automatically and we never have to worry about downtimes. is as described."
-    },
-    {
-      customerName: "Serena Davis",
-      customerProfile: "Founder, Travana",
-      imageSrc:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=256&h=256&q=80",
-      quote:
-        "We are delighted with the quality and performance of the servers that servana provides. The uptime is amazing and the internet connection is great for the price we are paying."
-    },
-    {
-      customerName: "Timothy Burr",
-      customerProfile: "CTO, Coronax",
-      imageSrc:
-        "https://images.unsplash.com/photo-1580852300654-03c803a14e24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4.25&w=256&h=256&q=80",
-      quote:
-        "It has been 8 months since we have switched to servana and it has nothing but an amazing experience. The cost is affordable, support is great, uptime is as described."
-    }
-  ]
+  heading = "Some of our Awesome Clients",
+  description = "We attempt to maximize the profits with minimum possible liability, & our clients appreciate that!",
 }) => {
+  const [testimonials, setPosts] = useState([
+    {
+      customerName: "Client Name",
+      plan: "",
+      imgSrc: "https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png",
+      quote: "Testimony"
+    }
+  ]);
+   useEffect(() => {
+      let headers = new Headers();
+      
+     fetch('https://anthill-python-backend.herokuapp.com/api/v1/listCustomers', {
+        mode: "cors",
+        method: "GET",
+        headers: headers,
+        
+      })
+         .then((response) => response.json())
+         .then((data) => {
+            setPosts(data);
+         })
+         .catch((err) => {
+            console.log(err.message);
+         });
+   }, []);
   const [sliderRef, setSliderRef] = useState(null)
 
   return (
@@ -94,17 +93,17 @@ export default ({
               <QuoteContainer>
                 <QuoteIcon />
                 <Quote>
-                  {testimonial.quote}
+                  {testimonial.testimony}
                 </Quote>
               </QuoteContainer>
               <CustomerInfoAndControlsContainer>
-                <CustomerImage src={testimonial.imageSrc} />
+                <CustomerImage src={testimonial.imgSrc} />
                 <CustomerNameAndProfileContainer>
                   <CustomerName>
                     {testimonial.customerName}
                   </CustomerName>
                   <CustomerProfile>
-                    {testimonial.customerProfile}
+                    {testimonial.plan}
                   </CustomerProfile>
                 </CustomerNameAndProfileContainer>
                 <ControlsContainer>

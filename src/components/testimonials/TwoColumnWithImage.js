@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -77,23 +77,23 @@ export default () => {
   // var testimonials = useRef([]);
   // eslint-disable-next-line no-unused-vars
   const [testimonials, setPosts] = useState([]);
-   useEffect(() => {  
-      let headers = new Headers();
-      
-     fetch('http://127.0.0.1:5000/api/v1/listCustomers', {
-        mode: "cors",
-        method: "GET",
-        headers: headers,
-        
+  useEffect(() => {
+    let headers = new Headers();
+
+    fetch('https://anthill-python-backend.herokuapp.com/api/v1/listCustomers', {
+      mode: "cors",
+      method: "GET",
+      headers: headers,
+
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data);
       })
-         .then((response) => response.json())
-         .then((data) => {
-            setPosts(data);
-         })
-         .catch((err) => {
-            console.log(err.message);
-         });
-   }, []);
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -9,6 +9,7 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as ChevronDownIcon } from "feather-icons/dist/icons/chevron-down.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-7.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-8.svg";
+import { Link } from "react-scroll";
 
 const Subheading = tw(SubheadingBase)`mb-4 text-center`;
 const Heading = tw(SectionHeading)`w-full`;
@@ -36,35 +37,37 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
   ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-64 w-64 opacity-15 transform -translate-x-2/3 text-primary-500`}
 `;
 
+const ContactUsButton = tw.button`w-full sm:w-64 mt-6 py-3 bg-gray-100 text-primary-500 rounded-full font-bold tracking-wide shadow-lg uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-gray-300 hover:text-primary-700 hocus:-translate-y-px hocus:shadow-xl`;
+
 
 
 export default ({
   subheading = "FAQS",
-  heading = "You have Questions ?",
-  description = "And we have got answers to all of them. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  faqs = [
-    {
-      question: "Is lunch provided free of cost ?",
-      answer:
-        "Yes, it is, if you have a membership with us. Otherwise it is charged as per the menu. Some limits do apply as to how much items can be included in your lunch. This limit is enough for any one person and merely exists to discourage abusal of the system."
-    },
-    {
-      question: "Do you have 2 Bedroom suites ?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      question: "Are Wi-Fi costs included in the price ?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      question: "Where can I reach you for support ?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    }
-  ]
+  heading = "You have Questions ?"
 }) => {
+  const [faqs, setFAQs] = useState([
+    {
+      question: "Question?",
+      answer: "No Questions As of yet"
+    }
+  ]);
+  useEffect(() => {
+    let headers = new Headers();
+    
+   fetch('https://anthill-python-backend.herokuapp.com/api/v1/listFAQs', {
+      mode: "cors",
+      method: "GET",
+      headers: headers,
+      
+    })
+       .then((response) => response.json())
+       .then((data) => {
+          setFAQs(data);
+       })
+       .catch((err) => {
+          console.log(err.message);
+       });
+ }, []);
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(null);
 
   const toggleQuestion = questionIndex => {
@@ -79,7 +82,6 @@ export default ({
           <HeaderContent>
             {subheading && <Subheading>{subheading}</Subheading>}
             <Heading>{heading}</Heading>
-            {description && <Description>{description}</Description>}
           </HeaderContent>
           <FAQSContainer>
             {faqs.map((faq, index) => (
@@ -118,6 +120,18 @@ export default ({
               </FAQ>
             ))}
           </FAQSContainer>
+          < ContactUsButton type="submit">
+            <Link
+              activeClass="active"
+              to="contactus"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
+              Have more questions?
+            </Link>
+          </ContactUsButton>
         </Column>
       </ContentWithPaddingXl>
       <DecoratorBlob1/>

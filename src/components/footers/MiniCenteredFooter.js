@@ -3,9 +3,9 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import {Container as ContainerBase } from "components/misc/Layouts.js"
 import logo from "../../images/AriaILogo.jpeg";
-import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
+import { ReactComponent as LinkedInIcon } from "../../images/linkedin-icon.svg";
 
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`
@@ -36,23 +36,21 @@ export default () => {
         <Row>
           <LogoContainer>
             <LogoImg src={logo} style = {{borderRadius : "5px"}} />
-            <LogoText>AriaAI IntelliGen</LogoText>
+            <LogoText>ARIAI</LogoText>
           </LogoContainer>
           <LinksContainer>
-            <Link href="#">Home</Link>
-            <Link href="#">About</Link>
-            <Link href="#">Contact Us</Link>
-            <Link href="#">Blog</Link>
-            <Link href="#">Reviews</Link>
+            <Link href="#products">Products</Link>
+            <Link href="#testimonial">Testimonials</Link>
+            <Link href="#contactus">Contact Us</Link>
           </LinksContainer>
           <SocialLinksContainer>
-            <SocialLink href="https://facebook.com">
-              <FacebookIcon />
+            <SocialLink href="https://www.linkedin.com/company/31555106" target="_blank">
+              <LinkedInIcon />
             </SocialLink>
-            <SocialLink href="https://twitter.com">
+            <SocialLink href="https://twitter.com/hrushikesh_3337" target="_blank">
               <TwitterIcon />
             </SocialLink>
-            <SocialLink href="https://youtube.com">
+            <SocialLink href="https://www.youtube.com/channel/UCLf-xF3Yv-hD3jdfas8WftQ" target="_blank">
               <YoutubeIcon />
             </SocialLink>
           </SocialLinksContainer>
