@@ -1,7 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
-import {Container as ContainerBase } from "components/misc/Layouts.js"
+import { Container as ContainerBase } from "components/misc/Layouts.js"
 import logo from "../../images/AriaILogo.jpeg";
 import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
@@ -35,7 +35,7 @@ export default () => {
       <Content>
         <Row>
           <LogoContainer>
-            <LogoImg src={logo} style = {{borderRadius : "5px"}} />
+            <LogoImg src={logo} style={{ borderRadius: "5px" }} />
             <LogoText>ARIAI</LogoText>
           </LogoContainer>
           <LinksContainer>
@@ -55,7 +55,7 @@ export default () => {
             </SocialLink>
           </SocialLinksContainer>
           <CopyrightText>
-            &copy; Copyright 2020, Treact Inc. All Rights Reserved.
+            &copy; Copyright 2022, ARIAI Intelligen. All Rights Reserved.
           </CopyrightText>
         </Row>
       </Content>
