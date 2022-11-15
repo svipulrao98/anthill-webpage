@@ -3,6 +3,7 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/BackgroundAsImageWithCenteredContent.js";
 import Blog from "components/blogs/ThreeColSimpleWithImage.js";
 import Faq2 from "components/faqs/SingleCol.js";
+import CompanyStats from "components/features/ThreeColCenteredStatsPrimaryBackground.js";
 import Testimonial1 from "components/testimonials/SimplePrimaryBackground.js";
 import ContactUsForm from "components/forms/SimpleContactUs.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
@@ -12,6 +13,7 @@ export default () => {
   return (
     <AnimationRevealPage>
       <Hero />
+      <CompanyStats />
       {/* <Features /> */}
       <div id="products">
         <Blog />
@@ -24,7 +26,7 @@ export default () => {
         <ContactUsForm />
       </div>
       <OurTeam />
-      <div  id="faqs">
+      <div id="faqs">
         <Faq2 />
       </div>
       <Footer />

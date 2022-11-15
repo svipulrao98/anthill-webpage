@@ -35,31 +35,31 @@ const DecoratorBlob2 = tw(
 export default () => {
   const blogPosts = [
     {
-      imageSrc: EquityRichScheme,
-      category: "Equity Rich",
-      title: "The Assets stays with you, we trade, you earn.",
-      url: "https://timerse.com"
-    },
-    {
       imageSrc: AssetsExchange,
       category: "Recurring Return",
       title: "Your Assets remain safe with us, monthly fixed returns.",
       url: "https://reddit.com"
-    // },
-    // {
-    //   imageSrc:
-    //     "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    //   category: "Discover",
-    //   title: "This female band is making buzz all over the world",
-    //   url: "https://timerse.com"
+    },
+    {
+      imageSrc: EquityRichScheme,
+      category: "Equity Rich",
+      title: "The Assets stays with you, we trade, you earn.",
+      url: "https://timerse.com"
+      // },
+      // {
+      //   imageSrc:
+      //     "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      //   category: "Discover",
+      //   title: "This female band is making buzz all over the world",
+      //   url: "https://timerse.com"
     }
   ];
   return (
-    <Container  style={{ backgroundColor: "#ffffff" }}>
+    <Container style={{ backgroundColor: "#ffffff" }}>
       <Content>
         <HeadingInfoContainer>
-          <HeadingTitle>Our Products</HeadingTitle>
-          <HeadingDescription>Aim to cover the high risk takers & the fixed returns gainer.</HeadingDescription>
+          <HeadingTitle>Our Services</HeadingTitle>
+          <HeadingDescription>We aim to cover the high risk takers & the fixed returns gainer.</HeadingDescription>
         </HeadingInfoContainer>
         <ThreeColumn>
           {blogPosts.map((post, index) => (

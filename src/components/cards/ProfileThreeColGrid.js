@@ -1,19 +1,19 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings";
-import {SectionDescription} from "components/misc/Typography";
-import { ReactComponent as TwitterIcon} from "images/twitter-icon.svg";
-import { ReactComponent as LinkedinIcon} from "images/linkedin-icon.svg";
+import { SectionDescription } from "components/misc/Typography";
+import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
+import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
 // import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 
 const PrimaryBackgroundContainer = tw(Container)`-mx-8 px-8 bg-primary-900 text-gray-100 rounded`;
 
 const HeadingContainer = tw.div``
 const Heading = tw(SectionHeading)``
-const Subheading = tw(SubheadingBase)`text-center mb-3`
+const Subheading = tw(SubheadingBase)`text-center mb-3 text-gray-500`
 const Description = tw(SectionDescription)`mx-auto text-center text-gray-300`;
 
 const Cards = tw.div`flex flex-wrap flex-row justify-center sm:max-w-2xl lg:max-w-5xl mx-auto`
@@ -43,9 +43,9 @@ const CardLinks = styled.div`
 `
 
 export default ({
-  heading = "Our Team",
-  subheading = "",
-  description = "Driven to deliver, Client first, are our biggest traits.",
+  heading = "Management",
+  subheading = "Driven to deliver, Client first, are our biggest traits.",
+  description = "Our systems & strategies are backed by our innovative analysis of past and real-time data, which is backed by our strong expertise in the technological domain, topped with the tried & tested old-school chart analysis. This makes it hard for us to lose our positions.",
 }) => {
   const [cards, setCards] = useState([
     {
@@ -66,40 +66,40 @@ export default ({
   ]);
   useEffect(() => {
     let headers = new Headers();
-    
-   fetch('https://anthill-python-backend.herokuapp.com/api/v1/listTeam', {
+
+    fetch('https://anthill-python-backend.herokuapp.com/api/v1/listTeam', {
       mode: "cors",
       method: "GET",
       headers: headers,
-      
+
     })
-       .then((response) => response.json())
-       .then((data) => {
-          for (let d = 0; d < data.length; d++){
-            data[d]["links"] = [
-              {
-                url: data[d]["twitter"],
-                icon: TwitterIcon
-              },
-              {
-                url: data[d]["linkedin"],
-                icon: LinkedinIcon
-              },
-            ]
-          }
-          setCards(data);
-       })
-       .catch((err) => {
-          console.log(err.message);
-       });
- }, []);
+      .then((response) => response.json())
+      .then((data) => {
+        for (let d = 0; d < data.length; d++) {
+          data[d]["links"] = [
+            {
+              url: data[d]["twitter"],
+              icon: TwitterIcon
+            },
+            {
+              url: data[d]["linkedin"],
+              icon: LinkedinIcon
+            },
+          ]
+        }
+        setCards(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
   return (
     <PrimaryBackgroundContainer>
       <ContentWithPaddingXl>
         <HeadingContainer>
+          {heading && <Heading>{heading}</Heading>}
           {subheading && <Subheading>{subheading}</Subheading>}
-          {heading && <Heading>{heading}</Heading> }
-          {description && <Description>{description}</Description> }
+          {description && <Description>{description}</Description>}
         </HeadingContainer>
         <Cards>
           {cards.map((card, index) => (
