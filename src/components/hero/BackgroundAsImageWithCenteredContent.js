@@ -55,7 +55,7 @@ export default () => {
           offset={-100}
           duration={500}
         >
-          Products
+          Services
         </Link>
       </NavLink>
       <NavLink href="">
