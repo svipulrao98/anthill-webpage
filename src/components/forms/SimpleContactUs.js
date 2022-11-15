@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import {ReactComponent as SvgDotPatternIcon} from "../../images/dot-pattern.svg"
-import colors from "tailwindcss/colors";
+import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg"
+import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
+const Heading = tw(SectionHeading)`w-full`;
+const Subheading = tw(SubheadingBase)`mb-4 text-center text-gray-500`;
 
 const FormContainer = styled.div`
   ${tw`p-10 sm:p-12 md:p-16 bg-primary-900 text-gray-100 rounded-lg relative`}
@@ -59,9 +61,9 @@ export default () => {
       let _ = await res.json();
       // eslint-disable-next-line eqeqeq
       if (res.status == 200) {
-       setName("")
-       setEmail("")
-       setMessage("")
+        setName("")
+        setEmail("")
+        setMessage("")
       }
     } catch (err) {
       console.log(err)
@@ -73,12 +75,13 @@ export default () => {
       <Content>
         <FormContainer>
           <div tw="mx-auto max-w-4xl">
-            <h2>Mail Us!</h2>
+            <Heading>Schedule a Call?</Heading>
+            <Subheading>Or Just drop in a questions!</Subheading>
             <form onSubmit={handleContactUs}>
               <TwoColumn>
                 <Column>
                   <InputContainer>
-                    <Label htmlFor="name-input">Your Name<span style= {{color : "#b70000"}} >*</span></Label>
+                    <Label htmlFor="name-input">Your Name<span style={{ color: "#b70000" }} >*</span></Label>
                     <Input id="name-input" type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                   </InputContainer>
                   <InputContainer>
@@ -88,7 +91,7 @@ export default () => {
                 </Column>
                 <Column>
                   <InputContainer tw="flex-1">
-                    <Label htmlFor="name-input">Your Message<span style= {{color : "#b70000"}} >*</span></Label>
+                    <Label htmlFor="name-input">Your Message<span style={{ color: "#b70000" }} >*</span></Label>
                     <TextArea id="message-input" name="message" placeholder="Type in your query here, we will respond you at the soonest!" value={message} onChange={(e) => setMessage(e.target.value)} />
                   </InputContainer>
                 </Column>

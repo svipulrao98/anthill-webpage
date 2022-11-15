@@ -71,13 +71,13 @@ export default () => {
                 <Links href="">
                   <Link
                     activeClass="active"
-                    to="contactus"
+                    to="faqs"
                     spy={true}
                     smooth={true}
                     offset={-100}
                     duration={500}
                   >
-                    Learn More
+                    Have Questions?
                   </Link>
                 </Links>
               </Card>
