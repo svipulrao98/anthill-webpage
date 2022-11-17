@@ -4,18 +4,8 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import CustomParticles from "components/custom_designs/CustomParticles";
 
-import Header, { NavLink, NavLinks, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
+import Header from "../headers/light.js";
 import { Link } from "react-scroll";
-
-const StyledHeader = styled(Header)`
-  ${tw`pt-8 max-w-none w-full`}
-  ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
-    ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
-  }
-  ${NavToggle}.closed {
-    ${tw`text-gray-100 hover:text-primary-500`}
-  }
-`;
 
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
@@ -44,65 +34,65 @@ const Heading2 = styled.h2`
 const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-gray-100 font-bold shadow transition duration-300 bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:outline-none focus:shadow-outline`;
 
 export default () => {
-  const navLinks = [
-    <NavLinks key={1}>
-      <NavLink href="">
-        <Link
-          activeClass="active"
-          to="products"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          Services
-        </Link>
-      </NavLink>
-      <NavLink href="">
-        <Link
-          activeClass="active"
-          to="testimonial"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          Testimonials
-        </Link>
-      </NavLink>
-      <NavLink href="">
-        <Link
-          activeClass="active"
-          to="contactus"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          Contact Us
-        </Link>
-      </NavLink>
-      <NavLink href="">
-        <Link
-          activeClass="active"
-          to="faqs"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          FAQs
-        </Link>
-      </NavLink>
-    </NavLinks>
-  ];
+  // const navLinks = [
+  //   <NavLinks key={1}>
+  //     <NavLink href="">
+  //       <Link
+  //         activeClass="active"
+  //         to="products"
+  //         spy={true}
+  //         smooth={true}
+  //         offset={-100}
+  //         duration={500}
+  //       >
+  //         Services
+  //       </Link>
+  //     </NavLink>
+  //     <NavLink href="">
+  //       <Link
+  //         activeClass="active"
+  //         to="testimonial"
+  //         spy={true}
+  //         smooth={true}
+  //         offset={-100}
+  //         duration={500}
+  //       >
+  //         Testimonials
+  //       </Link>
+  //     </NavLink>
+  //     <NavLink href="">
+  //       <Link
+  //         activeClass="active"
+  //         to="contactus"
+  //         spy={true}
+  //         smooth={true}
+  //         offset={-100}
+  //         duration={500}
+  //       >
+  //         Contact Us
+  //       </Link>
+  //     </NavLink>
+  //     <NavLink href="">
+  //       <Link
+  //         activeClass="active"
+  //         to="faqs"
+  //         spy={true}
+  //         smooth={true}
+  //         offset={-100}
+  //         duration={500}
+  //       >
+  //         FAQs
+  //       </Link>
+  //     </NavLink>
+  //   </NavLinks>
+  // ];
 
   return (
     <Container>
       <CustomParticles />
       <OpacityOverlay />
       <HeroContainer>
-        <StyledHeader links={navLinks} />
+        <Header />
         <Content>
           <Heading1>
             ANTHILL
@@ -121,7 +111,7 @@ export default () => {
               offset={-100}
               duration={500}
             >
-              Eplore the Plans
+              Explore the Plans
             </Link>
           </PrimaryAction>
         </Content>

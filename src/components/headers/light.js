@@ -9,10 +9,12 @@ import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/AriaILogo.jpeg";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Header = tw.header`
   flex justify-between items-center
   max-w-screen-xl mx-auto
+  pt-8 max-w-none w-full
 `;
 
 export const NavLinks = tw.div`inline-block`;
@@ -23,13 +25,13 @@ export const NavLinks = tw.div`inline-block`;
 export const NavLink = tw.a`
   text-lg my-2 lg:text-sm lg:mx-6 lg:my-0
   font-semibold tracking-wide transition duration-300
-  pb-1 border-b-2 border-transparent hover:border-primary-500 hocus:text-primary-500
+  pb-1 border-b-2 border-transparent text-gray-100 hover:border-gray-300 hover:text-gray-300
 `;
 
 export const PrimaryLink = tw(NavLink)`
   lg:mx-0
   px-8 py-3 rounded bg-primary-500 text-gray-100
-  hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline
+  hocus:bg-blue-700 hocus:text-gray-200 focus:shadow-outline
   border-b-0
 `;
 
@@ -43,10 +45,10 @@ export const LogoLink = styled(NavLink)`
 
 export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
 export const NavToggle = tw.button`
-  lg:hidden z-20 focus:outline-none hocus:text-primary-500 transition duration-300
+  lg:hidden z-20 focus:outline-none hocus:text-gray-100 transition duration-300 text-gray-100 hover:border-gray-500
 `;
-export const MobileNavLinks = motion(styled.div`
-  ${tw`lg:hidden z-10 fixed top-0 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 bg-white`}
+export const MobileNavLinks = motion.custom(styled.div`
+  ${tw`lg:hidden z-10 fixed top-0 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 bg-primary-500`}
   ${NavLinks} {
     ${tw`flex flex-col items-center`}
   }
@@ -70,32 +72,29 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    * changing the defaultLinks variable below below.
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
-  const defaultLinks = [
-    <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
-      <NavLink href="/#" tw="lg:ml-12!">
-        Login
-      </NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Sign Up</PrimaryLink>
-    </NavLinks>
-  ];
 
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
   const collapseBreakpointCss = collapseBreakPointCssMap[collapseBreakpointClass];
+  const defaultLinks = [
+    <NavLinks key={1}>
+      {/* <NavLink><AnchorLink href="#ai" onClick={toggleNavbar}>Our Expertise</AnchorLink></NavLink> */}
+      <NavLink><AnchorLink href="#products" onClick={toggleNavbar}>Services</AnchorLink></NavLink>
+      <NavLink><AnchorLink href="#testimonial" onClick={toggleNavbar}>Testimonials</AnchorLink></NavLink>
+      <NavLink><AnchorLink href="#faq" onClick={toggleNavbar}>FAQs</AnchorLink></NavLink>
+      <NavLink><AnchorLink href="#contactus" onClick={toggleNavbar}>Contact Us</AnchorLink></NavLink>
+    </NavLinks>
+  ];
 
   const defaultLogoLink = (
     <LogoLink href="/">
-      <img src={logo} alt="logo" style = {{borderRadius : "5px"}} />
-      AriaA INTELLIGEN
+      <img src={logo} alt="logo" />
+      ARIA.AI IntelliGen
     </LogoLink>
   );
 
   logoLink = logoLink || defaultLogoLink;
   links = links || defaultLinks;
-
+  console.log(showNavLinks)
   return (
     <Header className={className || "header-light"}>
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>

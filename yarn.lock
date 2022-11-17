@@ -4658,25 +4658,23 @@
   "resolved" "https://registry.npmjs.org/fraction.js/-/fraction.js-4.2.0.tgz"
   "version" "4.2.0"
 
-"framer-motion@^4.1.5":
-  "integrity" "sha512-ExZ/BGKecRDs91W9ZebbCW5HgO8PaVT5V2ZUs28/jqLyef7VrTho0J5BRH/oAvwc9Qdnl0nRS/YRJWNOCt/PYQ=="
-  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-4.1.5.tgz"
-  "version" "4.1.5"
+"framer-motion@^3.10.6":
+  "integrity" "sha512-OxOtKgQS4km9a8dm0IMBtNNp4f0DiHfQ/IzxKs818+Kg9V/Ve/pRUJ2dtWBb6+W4lIPNLgRSpbOwOACVj15XcQ=="
+  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-3.10.6.tgz"
+  "version" "3.10.6"
   dependencies:
-    "framesync" "5.3.0"
+    "framesync" "5.2.0"
     "hey-listen" "^1.0.8"
-    "popmotion" "9.3.5"
-    "style-value-types" "4.1.4"
-    "tslib" "^2.1.0"
+    "popmotion" "9.3.1"
+    "style-value-types" "4.1.1"
+    "tslib" "^1.10.0"
   optionalDependencies:
     "@emotion/is-prop-valid" "^0.8.2"
 
-"framesync@5.3.0":
-  "integrity" "sha512-oc5m68HDO/tuK2blj7ZcdEBRx3p1PjrgHazL8GYEpvULhrtGIFbQArN6cQS2QhW8mitffaB+VYzMjDqBxxQeoA=="
-  "resolved" "https://registry.npmjs.org/framesync/-/framesync-5.3.0.tgz"
-  "version" "5.3.0"
-  dependencies:
-    "tslib" "^2.1.0"
+"framesync@5.2.0":
+  "integrity" "sha512-dcl92w5SHc0o6pRK3//VBVNvu6WkYkiXmHG6ZIXrVzmgh0aDYMDAaoA3p3LH71JIdN5qmhDcfONFA4Lmq22tNA=="
+  "resolved" "https://registry.npmjs.org/framesync/-/framesync-5.2.0.tgz"
+  "version" "5.2.0"
 
 "framesync@6.1.0":
   "integrity" "sha512-aBX+hdWAvwiJYeQlFLY2533VxeL6OEu71CAgV4GGKksrj6+dE6i7K86WSSiRBEARCoJn5bFqffhg4l07eA27tg=="
@@ -6908,15 +6906,15 @@
   dependencies:
     "find-up" "^3.0.0"
 
-"popmotion@9.3.5":
-  "integrity" "sha512-Lr2rq8OP0j8D7CO2/6eO17ALeFCxjx1hfTGbMg+TLqFj+KZSGOoj6gRBVTzDINGqo6LQrORQSSSDaCL5OrB3bw=="
-  "resolved" "https://registry.npmjs.org/popmotion/-/popmotion-9.3.5.tgz"
-  "version" "9.3.5"
+"popmotion@9.3.1":
+  "integrity" "sha512-Qozvg8rz2OGeZwWuIjqlSXqqgWto/+QL24ll8sAAc0n71KY/wvN1W4sAASxTuHv8YWdDnk9u9IdadyPo2DGvDA=="
+  "resolved" "https://registry.npmjs.org/popmotion/-/popmotion-9.3.1.tgz"
+  "version" "9.3.1"
   dependencies:
-    "framesync" "5.3.0"
+    "framesync" "5.2.0"
     "hey-listen" "^1.0.8"
-    "style-value-types" "4.1.4"
-    "tslib" "^2.1.0"
+    "style-value-types" "4.1.1"
+    "tslib" "^1.10.0"
 
 "postcss-attribute-case-insensitive@^5.0.2":
   "integrity" "sha512-XIidXV8fDr0kKt28vqki84fRK8VW8eTuIa4PChv2MqKuT6C9UjmSKzen6KaWhWEoYvwxFCa7n/tC1SZ3tyq4SQ=="
@@ -8745,13 +8743,13 @@
   "resolved" "https://registry.npmjs.org/style-loader/-/style-loader-3.3.1.tgz"
   "version" "3.3.1"
 
-"style-value-types@4.1.4":
-  "integrity" "sha512-LCJL6tB+vPSUoxgUBt9juXIlNJHtBMy8jkXzUJSBzeHWdBu6lhzHqCvLVkXFGsFIlNa2ln1sQHya/gzaFmB2Lg=="
-  "resolved" "https://registry.npmjs.org/style-value-types/-/style-value-types-4.1.4.tgz"
-  "version" "4.1.4"
+"style-value-types@4.1.1":
+  "integrity" "sha512-cNLrl6jk+I1T18ZI2KIp/fcqKVuykcNELDrOz7y+TYZR97xmNdN0ewupURvVFnQxVrRJv98TMBq92VMsggq3kw=="
+  "resolved" "https://registry.npmjs.org/style-value-types/-/style-value-types-4.1.1.tgz"
+  "version" "4.1.1"
   dependencies:
     "hey-listen" "^1.0.8"
-    "tslib" "^2.1.0"
+    "tslib" "^1.10.0"
 
 "styled-components@^5.2.3", "styled-components@>= 2":
   "integrity" "sha512-BlR+KrLW3NL1yhvEB+9Nu9Dt51CuOnHoxd+Hj+rYPdtyR8X11uIW9rvhpy3Dk4dXXBsiW1u5U78f00Lf/afGoA=="
@@ -9088,12 +9086,17 @@
     "minimist" "^1.2.6"
     "strip-bom" "^3.0.0"
 
+"tslib@^1.10.0":
+  "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
+  "version" "1.14.1"
+
 "tslib@^1.8.1":
   "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.3", "tslib@^2.1.0", "tslib@^2.3.1":
+"tslib@^2.0.3", "tslib@^2.3.1":
   "integrity" "sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
   "version" "2.4.0"
