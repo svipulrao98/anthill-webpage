@@ -86,9 +86,9 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   ];
 
   const defaultLogoLink = (
-    <LogoLink href="/">
+    <LogoLink href="https://www.ariai.in" target="_blank">
       <img src={logo} alt="logo" />
-      ARIA.AI IntelliGen
+      ARIAI
     </LogoLink>
   );
 
