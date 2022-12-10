@@ -81,7 +81,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
       <NavLink><AnchorLink href="#products" onClick={toggleNavbar}>Services</AnchorLink></NavLink>
       <NavLink><AnchorLink href="#testimonial" onClick={toggleNavbar}>Testimonials</AnchorLink></NavLink>
       <NavLink><AnchorLink href="#faq" onClick={toggleNavbar}>FAQs</AnchorLink></NavLink>
-      <NavLink><AnchorLink href="#contactus" onClick={toggleNavbar}>Contact Us</AnchorLink></NavLink>
+      {/* <NavLink><AnchorLink href="#contactus" onClick={toggleNavbar}>Contact Us</AnchorLink></NavLink> */}
     </NavLinks>
   ];
 
