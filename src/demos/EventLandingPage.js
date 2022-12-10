@@ -5,7 +5,7 @@ import Blog from "components/blogs/ThreeColSimpleWithImage.js";
 import Faq2 from "components/faqs/SingleCol.js";
 import CompanyStats from "components/features/ThreeColCenteredStatsPrimaryBackground.js";
 import Testimonial1 from "components/testimonials/SimplePrimaryBackground.js";
-import ContactUsForm from "components/forms/SimpleContactUs.js";
+// import ContactUsForm from "components/forms/SimpleContactUs.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import OurTeam from "components/cards/ProfileThreeColGrid.js"
 
