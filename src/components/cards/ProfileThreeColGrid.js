@@ -48,17 +48,47 @@ export default ({
   description = "Our systems & strategies are backed by our innovative analysis of past and real-time data, which is backed by our strong expertise in the technological domain, topped with the tried & tested old-school chart analysis. This makes it hard for us to lose our positions.",
 }) => {
   const [cards, setCards] = useState([
+    // {
+    //   imageSrc: "https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png",
+    //   position: "",
+    //   name: "",
+    //   links: [
+    //     {
+    //       url: "https://twitter.com",
+    //       icon: TwitterIcon,
+    //     },
+    //     {
+    //       url: "https://linkedin.com",
+    //       icon: LinkedinIcon,
+    //     },
+    //   ],
+    // },
     {
-      imageSrc: "https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png",
-      position: "",
-      name: "",
+      imageSrc: "https://drive.google.com/uc?export=view&id=1DhEfg5vnKOBGF1yaLMgnvqwd2EfCkhd_",
+      position: "Co-Founder, CEO",
+      name: "Vipul Rao",
       links: [
         {
-          url: "https://twitter.com",
+          url: "https://twitter.com/vips1998",
           icon: TwitterIcon,
         },
         {
-          url: "https://linkedin.com",
+          url: "https://www.linkedin.com/in/vipul-rao-20a7541b6/",
+          icon: LinkedinIcon,
+        },
+      ],
+    },
+    {
+      imageSrc: "https://drive.google.com/uc?export=view&id=1KQf1vGfdst3b1lIp-D3LpX_NlDP1GNCF",
+      position: "Co-Founder, Chief Trading Officer",
+      name: "Hrushikesh Patel",
+      links: [
+        {
+          url: "https://twitter.com/hrushikesh_3337",
+          icon: TwitterIcon,
+        },
+        {
+          url: "https://www.linkedin.com/in/hrushikesh-patel-b542b1150/",
           icon: LinkedinIcon,
         },
       ],

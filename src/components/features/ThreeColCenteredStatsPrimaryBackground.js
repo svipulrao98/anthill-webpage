@@ -24,15 +24,15 @@ export default ({
   const [stats, setStats] = useState([
     {
       key: "Clients",
-      value: "--",
+      value: "25+",
     },
     {
       key: "Liable Capital",
-      value: "--",
+      value: "₹1.3Cr+",
     },
     {
       key: "Team Size",
-      value: "--",
+      value: "10+",
     },
   ]);
   useEffect(() => {

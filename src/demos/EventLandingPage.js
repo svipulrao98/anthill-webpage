@@ -22,9 +22,9 @@ export default () => {
       <div id="testimonial">
         <Testimonial1 />
       </div>
-      <div id="contactus">
+      {/* <div id="contactus">
         <ContactUsForm />
-      </div>
+      </div> */}
       <OurTeam />
       <div id="faqs">
         <Faq2 />

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import tw from "twin.macro";
 import styled, { css } from "styled-components/macro"; //eslint-disable-line
@@ -53,30 +53,60 @@ export default ({
   description = "We attempt to maximize the profits with minimum possible liability, & our clients appreciate that!",
 }) => {
   const [testimonials, setPosts] = useState([
+    // {
+    //   customerName: "Client Name",
+    //   plan: "",
+    //   imgSrc: "https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png",
+    //   quote: "Testimony"
+    // }
     {
-      customerName: "Client Name",
-      plan: "",
-      imgSrc: "https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png",
-      quote: "Testimony"
+      customerName: "Shailendra Gupta",
+      imgSrc: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      plan: "Recurring Return",
+      testimony: "I have always looked for investing in the stock markets, but my busy schedule hasn't permitted me to do so, I invested in the 'Equity Rich' plan, now I earn & learn as well!"
+    },
+    {
+      customerName: "Vinayak Rao",
+      imgSrc: "https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2019/07/19/Pictures/ht-pune_9e4912ec-aa15-11e9-bdb2-acd0277ecbef.JPG",
+      plan: "Recurring Return",
+      testimony: "I had initially invested a small chunk of my wealth with there folks, but over the timeI was able to gain some trust, resulting in me investing some more."
+    },
+    {
+      customerName: "Vaishnavee Marathe",
+      imgSrc: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      plan: "Recurring Return",
+      testimony: "I belong to a tech background, anthill has given me an opportunity to safely experiment with my career, without a fear of loosing a stable income."
+    },
+    {
+      customerName: "Rupesh Surve",
+      imgSrc: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      plan: "Equity Rich",
+      testimony: "I have always been a passive trader, however with this equity rich plan I am gaining returns on an already gaining investment."
+    },
+    {
+      customerName: "Sameer Pendse",
+      imgSrc: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      plan: "Recurring Return",
+      testimony: "With very low returns for FDs & SB accounts, I had been investing in SIPs & Mutual Funds, I gave Anthill a shot about a year ago, now I've more than doubled my investment, I guess that's telling something."
     }
   ]);
-   useEffect(() => {
-      let headers = new Headers();
-      
-     fetch('https://anthill-python-backend.herokuapp.com/api/v1/listCustomers', {
-        mode: "cors",
-        method: "GET",
-        headers: headers,
-        
+  useEffect(() => {
+    let headers = new Headers();
+
+    fetch('https://anthill-python-backend.herokuapp.com/api/v1/listCustomers', {
+      mode: "cors",
+      method: "GET",
+      headers: headers,
+
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data);
       })
-         .then((response) => response.json())
-         .then((data) => {
-            setPosts(data);
-         })
-         .catch((err) => {
-            console.log(err.message);
-         });
-   }, []);
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
   const [sliderRef, setSliderRef] = useState(null)
 
   return (
@@ -111,7 +141,7 @@ export default ({
                     <ArrowLeftIcon className="icon" />
                   </ControlButton>
                   <ControlButton>
-                    <ArrowRightIcon className="icon" onClick={sliderRef?.slickNext}/>
+                    <ArrowRightIcon className="icon" onClick={sliderRef?.slickNext} />
                   </ControlButton>
                 </ControlsContainer>
               </CustomerInfoAndControlsContainer>

@@ -44,10 +44,26 @@ export default ({
   heading = "You have Questions ?"
 }) => {
   const [faqs, setFAQs] = useState([
+    // {
+    //   question: "Question?",
+    //   answer: "No Questions As of yet"
+    // }
     {
-      question: "Question?",
-      answer: "No Questions As of yet"
-    }
+      answer: "If you are already investing into equity markets , then you are holding large number of shares which you are not planning to sell any time soon. We are committed to earn you some handsome return on your investments in your account.",
+      question: "What is Our Equity Rich Plan?"
+    },
+    {
+      answer: "We are also into PMS service which would earn you minimum fixed returns per month on the investment made by the client as per the agreed upon terms.",
+      question: "What is the Recurring Return Plan?"
+    },
+    {
+      answer: "We would pledge your holding stocks with your broker to avail the benefits of collateral margin which our fund managers would utilise to earn you an handsome return.",
+      question: "How does the Equity Rich plan work?"
+    },
+    {
+      answer: "As soon as the investment is processed, NSE Nifty BEES are bought by our team which works as a security for the given tenure - it is an almost 0 risk investment. This investment will be sent to you within the next 7 trading days. Apart from this, we have our own safe fund that would ensure your gains. Our Algorithms are designed such that only our non-liable capital would be risked. To get more info about NSE NIFTY BEES head on to: https://www.nseindia.com/get-quotes/equity?symbol=NIFTYBEES",
+      question: "What is the security provided for the Recurring return plan?"
+    },
   ]);
   useEffect(() => {
     let headers = new Headers();
